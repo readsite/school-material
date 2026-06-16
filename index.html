@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <title>华玥素材库 · 内部共享平台</title>
+    <!-- 外部样式 -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Font Awesome (保留在 HTML 中，因为它是第三方库) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+    <div class="container">
+        <!-- ========== 登录面板 ========== -->
+        <div id="loginPanel" class="login-card">
+            <i class="fas fa-id-badge"></i>
+            <h2>员工登录</h2>
+            <input type="text" id="empUsername" placeholder="员工账号 / 工号" />
+            <input type="password" id="empPassword" placeholder="密码" />
+            <button id="empLoginBtn"><i class="fas fa-arrow-right-to-bracket"></i> 登录素材库</button>
+            <div id="loginError" class="error"></div>
+        </div>
+
+        <!-- ========== 主面板 ========== -->
+        <div id="materialPanel" class="material-panel hidden">
+            <div class="header">
+                <div class="header-left">
+                    <div class="logo-area">
+                        <div class="logo-img">
+                            <img src="logo.jpg" alt="logo" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%233b82f6%22%3E%3Cpath d=%22M4 6h16v2H4V6zm2-4h12v2H6V2zm16 4H2v12h20V6zM4 8h16v10H4V8z%22/%3E%3C/svg%3E';" />
+                        </div>
+                        <h4>华玥智汇 · 共享素材库</h4>
+                    </div>
+                    <div class="filter-bar" id="filterBar">
+                        <select id="categorySelect" class="category-select">
+                            <option value="all">全部分类</option>
+                        </select>
+                        <input type="text" id="searchKeyword" class="search-input" placeholder="搜索素材名称..." />
+                        <button id="resetFilterBtn" class="reset-btn"><i class="fas fa-undo-alt"></i> 重置</button>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="mobile-filter-trigger" id="mobileFilterBtn">
+                        <i class="fas fa-sliders-h"></i>
+                        <span id="filterActiveBadge" class="filter-badge" style="display:none;">已筛选</span>
+                    </div>
+                    <div class="avatar-container">
+                        <div class="avatar-btn" id="avatarBtn">
+                            <div class="avatar-icon" id="avatarIcon"></div>
+                        </div>
+                        <div class="dropdown-menu" id="dropdownMenu" style="display:none;">
+                            <div class="dropdown-info" id="dropdownNickname">加载中...</div>
+                            <div class="dropdown-username" id="dropdownUsername"></div>
+                            <div class="dropdown-item" id="dropdownFavorites"><i class="fas fa-heart" style="color:#ef4444;"></i> 我的收藏</div>
+                            <div class="dropdown-item" id="dropdownLogout"><i class="fas fa-sign-out-alt"></i> 退出登录</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="materialList" class="material-grid">加载中...</div>
+            <footer><i class="far fa-copyright"></i> 内部资产 · 点击卡片预览</footer>
+        </div>
+    </div>
+
+    <!-- ========== 移动端筛选浮层 ========== -->
+    <div id="filterModal" class="filter-modal">
+        <div class="modal-content">
+            <h3>筛选与搜索 <button class="modal-close" id="closeModalBtn">&times;</button></h3>
+            <select id="modalCategorySelect" class="modal-select"></select>
+            <input type="text" id="modalSearchInput" class="modal-input" placeholder="输入素材名称..." />
+            <div class="modal-buttons">
+                <button class="btn-reset-modal" id="modalResetBtn">重置</button>
+                <button class="btn-apply-modal" id="modalApplyBtn">应用</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== 收藏全屏弹窗 ========== -->
+    <div id="favoritesModalOverlay" class="favorites-modal-overlay">
+        <div class="favorites-modal-box">
+            <div class="favorites-header">
+                <h3><i class="fas fa-heart"></i> 我的收藏</h3>
+                <button class="favorites-close" id="favoritesCloseBtn">&times;</button>
+            </div>
+            <div class="favorites-body" id="favoritesBody"></div>
+        </div>
+    </div>
+
+    <!-- ========== 外部 JavaScript ========== -->
+    <script src="js/script.js"></script>
+</body>
+</html>
